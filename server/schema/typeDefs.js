@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    savedBooks: [Books]
+    savedBooks: [Book]
   }
 
   type Book {
@@ -24,7 +24,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser($username: String!,$email: String!, $password: String!): Createuser
+    createUser(username: String!, email: String!, password: String!): User
   }
 `;
 
