@@ -82,11 +82,20 @@ export const LOGIN_USER = gql`
 `;
 
 export const SINGLE_USER = gql`
-  mutation getSingleUser($token: String!, $id: String!, $username: String) {
+  mutation getSingleUser($token: String!, $id: String, $username: String) {
     getSingleUser(token: $token, id: $id, username: $username) {
       _id
       email
       username
+      savedBooks {
+        _id
+        bookId
+        title
+        authors
+        description
+        image
+        link
+      }
     }
   }
 `;
