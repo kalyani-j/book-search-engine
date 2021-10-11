@@ -6,7 +6,7 @@ const { typeDefs, resolvers } = require('./schema');
 require('dotenv').config();
 
 const app = express();
-const PORT = 5000; //process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,

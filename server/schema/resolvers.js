@@ -59,8 +59,9 @@ const resolvers = {
     },
     getSingleUser: async (parent, args) => {
       const { data } = jwt.verify(args.token, secret, { maxAge: expiration });
+      console.log(data);
       const foundUser = await User.findOne({
-        $or: [{ _id: user ? data._id : args.id }, { username: args.username }],
+        $or: [{ _id: data ? data._id : args.id }, { username: args.username }],
       });
 
       return foundUser;
